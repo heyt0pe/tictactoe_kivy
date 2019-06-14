@@ -1,0 +1,323 @@
+#: import FadeTransition kivy.uix.screenmanager.FadeTransition
+
+<Manager>:
+    transition: FadeTransition()
+    Home:
+    TwoPlayers:
+    OnePlayer:
+
+
+<Block>
+    canvas.before:
+        Color:
+            rgba: 1, 1, 0.4, 1
+        Rectangle:
+            size: self.size
+            pos: self.pos
+    font_size: 40
+    played: -1
+
+<Home>
+    name: 'home'
+    canvas:
+        Color:
+            rgba: 1, 1, 1, 1
+        Rectangle:
+            size: root.size
+            pos: root.pos
+    Label:
+        size_hint: None, None
+        text: 'Tic Tac Toe!'
+        color: 0, 0, 0, 1
+        font_size: 60
+        size: self.texture_size
+        pos: ((root.width / 2) - (self.width/ 2)), ((root.height / 2) - (self.height / 2)) + 100
+
+    GridLayout:
+        size_hint: None, None
+        size: root.width * 0.73, 80
+        pos: ((root.width / 2) - (self.width/ 2)), 10
+        cols: 3
+        Button:
+            text: 'Two Players'
+            font_size: 30
+            color: 0, 1, 0.3, 1
+            on_release: app.root.current = 'twoplayers'
+        Button:
+            text: 'One Player'
+            font_size: 30
+            color: 0, 1, 0.3, 1
+            on_release: app.root.current = 'oneplayer'
+        Button:
+            text: 'Exit'
+            font_size: 30
+            color: 1, 0, 0, 1
+            on_release: quit()
+
+<TwoPlayers>
+    id: gamy
+    name: 'twoplayers'
+    canvas.before:
+        Color:
+            rgba: 1, 1, 1, 1
+        Rectangle:
+            size: root.size
+            pos: root.pos
+    BoxLayout:
+        orientation: 'vertical'
+        size_hint: None, None
+        size: root.size
+        GridLayout:
+            cols: 5
+            size_hint: None, None
+            size: 400, 400
+            center: root.center
+            pos_hint: {'x': 0.27, 'top': 0}
+            Block:
+                font_size: 80
+                id: cell1
+
+
+            Label:
+                size_hint_x:None
+                width: 2
+            Block:
+                font_size: 80
+                id: cell2
+
+            Label:
+                size_hint_x:None
+                width: 2
+            Block:
+                font_size: 80
+                id: cell3
+
+            Label:
+                size_hint_y:None
+                height: 2
+            Label:
+                size_hint:None, None
+                size: 2, 2
+            Label:
+                size_hint_y:None
+                height: 2
+            Label:
+                size_hint:None, None
+                size: 2, 2
+            Label:
+                size_hint_y:None
+                height: 2
+            Block:
+                font_size: 80
+                id: cell4
+
+            Label:
+                size_hint_x:None
+                width: 2
+            Block:
+                font_size: 80
+                id: cell5
+
+            Label:
+                size_hint_x:None
+                width: 2
+            Block:
+                font_size: 80
+                id: cell6
+
+            Label:
+                size_hint_y:None
+                height: 2
+            Label:
+                size_hint:None, None
+                size: 2, 2
+            Label:
+                size_hint_y:None
+                height: 2
+            Label:
+                size_hint:None, None
+                size: 2, 2
+            Label:
+                size_hint_y:None
+                height: 2
+            Block:
+                font_size: 80
+                id: cell7
+
+            Label:
+                size_hint_x:None
+                width: 2
+            Block:
+                font_size: 80
+                id: cell8
+
+            Label:
+                size_hint_x:None
+                width: 2
+            Block:
+                font_size: 80
+                id: cell9
+
+        Label:
+            size_hint_y: None
+            height: root.height * 0.1
+            id: player_text
+            text: ''
+            color: 0, 0, 0, 1
+            font_size: 30
+        GridLayout:
+            size_hint: None, None
+            size: 500, 80
+            pos_hint: {'x': 0.170, 'y': 0}
+            height: root.height * 0.2
+            cols: 3
+            Button:
+                text: 'Home'
+                on_release: root.clear()
+                on_release: app.root.current = 'home'
+                font_size: 50
+                color: 0, 0, 0, 1
+            Button:
+                text: 'Clear'
+                on_release: root.clear()
+                font_size: 50
+                color: 0, 1, 1, 1
+            Button:
+                text: 'Exit'
+                on_release: quit()
+                font_size: 50
+                color: 1, 0, 0, 1
+
+<OnePlayer>
+    id: gamy
+    name: 'oneplayer'
+    canvas.before:
+        Color:
+            rgba: 1, 1, 1, 1
+        Rectangle:
+            size: root.size
+            pos: root.pos
+    BoxLayout:
+        orientation: 'vertical'
+        size_hint: None, None
+        size: root.size
+        GridLayout:
+            cols: 5
+            size_hint: None, None
+            size: 400, 400
+            center: root.center
+            pos_hint: {'x': 0.27, 'top': 0}
+            Block:
+                font_size: 80
+                id: cell1
+                
+
+            Label:
+                size_hint_x:None
+                width: 2
+            Block:
+                font_size: 80
+                id: cell2
+
+            Label:
+                size_hint_x:None
+                width: 2
+            Block:
+                font_size: 80
+                id: cell3
+
+            Label:
+                size_hint_y:None
+                height: 2
+            Label:
+                size_hint:None, None
+                size: 2, 2
+            Label:
+                size_hint_y:None
+                height: 2
+            Label:
+                size_hint:None, None
+                size: 2, 2
+            Label:
+                size_hint_y:None
+                height: 2
+            Block:
+                font_size: 80
+                id: cell4
+
+            Label:
+                size_hint_x:None
+                width: 2
+            Block:
+                font_size: 80
+                id: cell5
+
+            Label:
+                size_hint_x:None
+                width: 2
+            Block:
+                font_size: 80
+                id: cell6
+
+            Label:
+                size_hint_y:None
+                height: 2
+            Label:
+                size_hint:None, None
+                size: 2, 2
+            Label:
+                size_hint_y:None
+                height: 2
+            Label:
+                size_hint:None, None
+                size: 2, 2
+            Label:
+                size_hint_y:None
+                height: 2
+            Block:
+                font_size: 80
+                id: cell7
+
+            Label:
+                size_hint_x:None
+                width: 2
+            Block:
+                font_size: 80
+                id: cell8
+
+            Label:
+                size_hint_x:None
+                width: 2
+            Block:
+                font_size: 80
+                id: cell9
+
+        Label:
+            size_hint_y: None
+            height: root.height * 0.1
+            id: player_text
+            text: ''
+            color: 0, 0, 0, 1
+            font_size: 30
+        GridLayout:
+            size_hint: None, None
+            size: 500, 80
+            pos_hint: {'x': 0.170, 'y': 0}
+            height: root.height * 0.2
+            cols: 3
+            Button:
+                text: 'Home'
+                on_release: root.clear()
+                on_release: app.root.current = 'home'
+                font_size: 50
+                color: 0, 0, 0, 1
+            Button:
+                text: 'Clear'
+                on_release: root.clear()
+                font_size: 50
+                color: 0, 1, 1, 1
+            Button:
+                text: 'Exit'
+                on_release: quit()
+                font_size: 50
+                color: 1, 0, 0, 1
